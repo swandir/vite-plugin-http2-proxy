@@ -1,0 +1,13 @@
+{
+  "files": ["index.ts"],
+  "compilerOptions": {
+    "strict": true,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "types": ["node"],
+    "declaration": true,
+    "esModuleInterop": true,
+    "target": "ES2021",
+    "skipLibCheck": true
+  }
+}

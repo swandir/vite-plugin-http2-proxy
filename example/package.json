@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "vite": "^2.6.13",
+    "vite-plugin-http2-proxy": "workspace:*"
+  }
+}
