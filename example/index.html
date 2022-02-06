@@ -1,9 +1,7 @@
 <script type="module">
-  const accessToken = import.meta.env.VITE_ACCESS_TOKEN;
-
   const users = await fetch("/api/users").then((r) => r.json());
 
-  await fetch(`/api/posts?access-token=${accessToken}`, {
+  await fetch(`/api/posts`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -9,12 +9,15 @@ export default (options: {
   [regexp: string]: {
     target: string;
     rewrite?: (url: string) => string;
+    headers?: Record<string, number | string | string[] | undefined>;
   };
 }): Plugin => {
   return {
     name: "http2-proxy",
     configureServer: (server) => {
-      for (const [regexp, { target, rewrite }] of Object.entries(options)) {
+      for (const [regexp, { target, rewrite, headers }] of Object.entries(
+        options
+      )) {
         const re = new RegExp(regexp);
         const tu = new URL(target);
 
@@ -45,6 +48,12 @@ export default (options: {
                 port,
                 hostname: tu.hostname,
                 path: pathname + search,
+                onReq: async (_, options) => {
+                  options.headers = {
+                    ...options.headers,
+                    ...headers,
+                  };
+                },
               },
               (err) => err && next(err)
             );
