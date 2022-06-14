@@ -1,15 +1,17 @@
 <script type="module">
-  const users = await fetch("/api/users").then((r) => r.json());
-
-  await fetch(`/api/posts`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      title: "Title",
-      body: `Body`,
-      user_id: users.data[0].id,
-    }),
-  });
+  fetch("/api/users")
+    .then((r) => r.json())
+    .then((users) =>
+      fetch(`/api/posts`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: "Title",
+          body: `Body`,
+          user_id: users[0].id,
+        }),
+      })
+    );
 </script>

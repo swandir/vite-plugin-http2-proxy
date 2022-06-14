@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       proxy({
         "^/api/": {
-          target: "https://gorest.co.in/public/v1/",
+          target: "https://gorest.co.in/public/v2/",
           rewrite: (url) => url.replace(/^\/api\//, ""),
           headers: {
             Authorization: `Bearer ${VITE_ACCESS_TOKEN}`,
