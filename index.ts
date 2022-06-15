@@ -10,12 +10,14 @@ export default (options: {
     target: string;
     rewrite?: (url: string) => string;
     headers?: Record<string, number | string | string[] | undefined>;
+    secure?: boolean;
   };
 }): Plugin => {
   const configure = ({ middlewares }: { middlewares: Connect.Server }) => {
-    for (const [regexp, { target, rewrite, headers }] of Object.entries(
-      options
-    )) {
+    for (const [
+      regexp,
+      { target, rewrite, headers, secure = true },
+    ] of Object.entries(options)) {
       const re = new RegExp(regexp);
       const tu = new URL(target);
 
@@ -52,6 +54,7 @@ export default (options: {
                   ...headers,
                 };
               },
+              ["rejectUnauthorized" as never]: secure,
             },
             (err) => err && next(err)
           );

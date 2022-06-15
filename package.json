@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-http2-proxy",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Vite proxy with HTTP2 support",
   "keywords": [
     "vite-plugin",
