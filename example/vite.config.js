@@ -1,4 +1,5 @@
 import { defineConfig, loadEnv } from "vite";
+import basicSsl from "@vitejs/plugin-basic-ssl";
 import proxy from "vite-plugin-http2-proxy";
 
 export default defineConfig(({ mode }) => {
@@ -9,6 +10,7 @@ export default defineConfig(({ mode }) => {
       https: true,
     },
     plugins: [
+      basicSsl(),
       proxy({
         "^/api/": {
           target: "https://gorest.co.in/public/v2/",
