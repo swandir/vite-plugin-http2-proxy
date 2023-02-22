@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-http2-proxy",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "Vite proxy with HTTP2 support",
   "keywords": [
     "vite-plugin",
@@ -8,7 +8,7 @@
     "proxy"
   ],
   "license": "ISC",
-  "packageManager": "yarn@3.2.1",
+  "packageManager": "yarn@3.4.1",
   "workspaces": [
     "example"
   ],
@@ -21,19 +21,27 @@
   },
   "homepage": "https://github.com/swandir/vite-plugin-http2-proxy",
   "files": [
+    "index.cjs",
     "index.d.ts",
-    "index.js"
+    "index.mjs"
   ],
+  "type": "module",
+  "exports": {
+    "types": "./index.d.ts",
+    "import": "./index.mjs",
+    "require": "./index.cjs"
+  },
   "dependencies": {
     "http2-proxy": "^5.0.53"
   },
   "devDependencies": {
-    "@types/node": "^17.0.42",
-    "prettier": "^2.7.0",
-    "typescript": "^4.7.3",
-    "vite": "^3.0.0"
+    "@types/node": "^18.14.0",
+    "esbuild": "^0.17.10",
+    "prettier": "^2.8.4",
+    "typescript": "^4.9.5",
+    "vite": "^4.0.0"
   },
   "peerDependencies": {
-    "vite": "^2.9.12 || ^3.0.0"
+    "vite": "^2.9.12 || ^3.0.0 || ^4.0.0"
   }
 }

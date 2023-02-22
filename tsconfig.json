@@ -1,13 +1,14 @@
 {
-  "files": ["index.ts"],
+  "include": ["*"],
   "compilerOptions": {
     "strict": true,
-    "module": "CommonJS",
-    "moduleResolution": "Node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "types": ["node"],
     "declaration": true,
     "esModuleInterop": true,
     "target": "ES2021",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "emitDeclarationOnly": true
   }
 }
