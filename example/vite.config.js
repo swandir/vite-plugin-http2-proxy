@@ -20,6 +20,12 @@ export default defineConfig(({ mode }) => {
           },
         },
       }),
+      proxy({
+        "^/ws": {
+          target: "https://socketsbay.com/wss/v2/2/demo/",
+          ws: true,
+        },
+      }),
     ],
   };
 });

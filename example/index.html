@@ -15,3 +15,9 @@
       })
     );
 </script>
+
+<script type="module">
+  const ws = new WebSocket("wss://localhost:5173/ws");
+  ws.onmessage = (e) => console.log(e);
+  ws.send("Hi");
+</script>

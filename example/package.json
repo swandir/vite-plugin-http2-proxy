@@ -1,7 +1,8 @@
 {
+  "name": "example",
   "devDependencies": {
     "@vitejs/plugin-basic-ssl": "^0.1.1",
-    "vite": "^3.0.0",
+    "vite": "^3.0.4",
     "vite-plugin-http2-proxy": "workspace:*"
   }
 }

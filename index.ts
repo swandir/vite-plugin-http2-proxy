@@ -1,5 +1,7 @@
-import { Plugin, type ViteDevServer, type PreviewServer, Connect } from "vite";
-import proxy from "http2-proxy";
+import { Plugin, Connect } from "vite";
+import proxy, { http1Options } from "http2-proxy";
+import http from "node:http";
+import net from "node:net";
 
 const error = (message: string): never => {
   throw new Error(message);
@@ -11,12 +13,19 @@ export default (options: {
     rewrite?: (url: string) => string;
     headers?: Record<string, number | string | string[] | undefined>;
     secure?: boolean;
+    ws?: boolean;
   };
 }): Plugin => {
-  const configure = ({ middlewares }: { middlewares: Connect.Server }) => {
+  const configure = ({
+    httpServer,
+    middlewares,
+  }: {
+    httpServer: http.Server | null;
+    middlewares: Connect.Server;
+  }) => {
     for (const [
       regexp,
-      { target, rewrite, headers, secure = true },
+      { target, rewrite, headers, secure = true, ws = false },
     ] of Object.entries(options)) {
       const re = new RegExp(regexp);
       const tu = new URL(target);
@@ -35,6 +44,8 @@ export default (options: {
           : /^\d+$/.test(tu.port)
           ? Number(tu.port)
           : error(`Invalid port: ${tu.href}`);
+
+      const match = (req: http.IncomingMessage) => true;
 
       middlewares.use((req, res, next) => {
         if (req.url && re.test(req.url)) {
@@ -62,6 +73,26 @@ export default (options: {
           next();
         }
       });
+
+      if (ws) {
+        if (!httpServer) {
+          throw Error("Unable to proxy WebSockets in middleware mode");
+        }
+        httpServer.on("upgrade", (req, socket, head) => {
+          if (req.url && re.test(req.url)) {
+            proxy.ws<http.IncomingMessage>(
+              req,
+              socket as net.Socket,
+              head,
+              {
+                port,
+                hostname: tu.hostname,
+              },
+              () => socket.destroy()
+            );
+          }
+        });
+      }
     }
   };
 
