@@ -444,28 +444,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["@vitejs/plugin-basic-ssl", [\
-        ["npm:1.0.1", {\
-          "packageLocation": "./.yarn/cache/@vitejs-plugin-basic-ssl-npm-1.0.1-54d353eb6f-9060dd9b02.zip/node_modules/@vitejs/plugin-basic-ssl/",\
-          "packageDependencies": [\
-            ["@vitejs/plugin-basic-ssl", "npm:1.0.1"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:260cbded26170ad9574d8af795f720c814500bad7a46f467f26b2daa1d7cb0583916d1f4f34948412d6d3e69e4f2781f1908be54ba6e3e97f1f75b8445445101#npm:1.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/@vitejs-plugin-basic-ssl-virtual-461d7eb785/0/cache/@vitejs-plugin-basic-ssl-npm-1.0.1-54d353eb6f-9060dd9b02.zip/node_modules/@vitejs/plugin-basic-ssl/",\
-          "packageDependencies": [\
-            ["@vitejs/plugin-basic-ssl", "virtual:260cbded26170ad9574d8af795f720c814500bad7a46f467f26b2daa1d7cb0583916d1f4f34948412d6d3e69e4f2781f1908be54ba6e3e97f1f75b8445445101#npm:1.0.1"],\
-            ["@types/vite", null],\
-            ["vite", "virtual:260cbded26170ad9574d8af795f720c814500bad7a46f467f26b2daa1d7cb0583916d1f4f34948412d6d3e69e4f2781f1908be54ba6e3e97f1f75b8445445101#npm:4.1.4"]\
-          ],\
-          "packagePeers": [\
-            "@types/vite",\
-            "vite"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["abbrev", [\
         ["npm:1.1.1", {\
           "packageLocation": "./.yarn/cache/abbrev-npm-1.1.1-3659247eab-a4a97ec07d.zip/node_modules/abbrev/",\
@@ -788,7 +766,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./example/",\
           "packageDependencies": [\
             ["example", "workspace:example"],\
-            ["@vitejs/plugin-basic-ssl", "virtual:260cbded26170ad9574d8af795f720c814500bad7a46f467f26b2daa1d7cb0583916d1f4f34948412d6d3e69e4f2781f1908be54ba6e3e97f1f75b8445445101#npm:1.0.1"],\
+            ["selfsigned", "npm:2.1.1"],\
             ["vite", "virtual:260cbded26170ad9574d8af795f720c814500bad7a46f467f26b2daa1d7cb0583916d1f4f34948412d6d3e69e4f2781f1908be54ba6e3e97f1f75b8445445101#npm:4.1.4"],\
             ["vite-plugin-http2-proxy", "virtual:260cbded26170ad9574d8af795f720c814500bad7a46f467f26b2daa1d7cb0583916d1f4f34948412d6d3e69e4f2781f1908be54ba6e3e97f1f75b8445445101#workspace:."]\
           ],\
@@ -1226,6 +1204,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["node-forge", [\
+        ["npm:1.3.1", {\
+          "packageLocation": "./.yarn/cache/node-forge-npm-1.3.1-f31fd566cc-08fb072d3d.zip/node_modules/node-forge/",\
+          "packageDependencies": [\
+            ["node-forge", "npm:1.3.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["node-gyp", [\
         ["npm:8.3.0", {\
           "packageLocation": "./.yarn/unplugged/node-gyp-npm-8.3.0-11e93b166f/node_modules/node-gyp/",\
@@ -1467,6 +1454,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/safer-buffer-npm-2.1.2-8d5c0b705e-cab8f25ae6.zip/node_modules/safer-buffer/",\
           "packageDependencies": [\
             ["safer-buffer", "npm:2.1.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["selfsigned", [\
+        ["npm:2.1.1", {\
+          "packageLocation": "./.yarn/cache/selfsigned-npm-2.1.1-311d9b0b6d-aa9ce2150a.zip/node_modules/selfsigned/",\
+          "packageDependencies": [\
+            ["selfsigned", "npm:2.1.1"],\
+            ["node-forge", "npm:1.3.1"]\
           ],\
           "linkType": "HARD"\
         }]\

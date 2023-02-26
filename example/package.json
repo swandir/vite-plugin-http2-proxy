@@ -2,7 +2,7 @@
   "name": "example",
   "type": "module",
   "devDependencies": {
-    "@vitejs/plugin-basic-ssl": "^1.0.1",
+    "selfsigned": "^2.1.1",
     "vite": "^4.0.0",
     "vite-plugin-http2-proxy": "workspace:*"
   }
