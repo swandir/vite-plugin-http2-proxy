@@ -1,4 +1,4 @@
-import { Plugin, type ViteDevServer, type PreviewServer, Connect } from "vite";
+import { Plugin, Connect } from "vite";
 import proxy from "http2-proxy";
 
 const error = (message: string): never => {
