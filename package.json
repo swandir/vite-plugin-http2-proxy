@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-http2-proxy",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Vite proxy with HTTP2 support",
   "keywords": [
     "vite-plugin",
@@ -13,7 +13,8 @@
     "example"
   ],
   "scripts": {
-    "prepack": "tsc"
+    "example": "yarn workspace example vite dev",
+    "prepack": "tsc && node build.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
     "import": "./index.mjs",
     "require": "./index.cjs"
   },
+  "types": "index.d.ts",
   "dependencies": {
     "http2-proxy": "^5.0.53"
   },

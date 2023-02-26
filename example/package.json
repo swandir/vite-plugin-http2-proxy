@@ -1,4 +1,6 @@
 {
+  "name": "example",
+  "type": "module",
   "devDependencies": {
     "@vitejs/plugin-basic-ssl": "^1.0.1",
     "vite": "^4.0.0",

@@ -726,9 +726,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"example-3bb12e@workspace:example":
+"example@workspace:example":
   version: 0.0.0-use.local
-  resolution: "example-3bb12e@workspace:example"
+  resolution: "example@workspace:example"
   dependencies:
     "@vitejs/plugin-basic-ssl": ^1.0.1
     vite: ^4.0.0
