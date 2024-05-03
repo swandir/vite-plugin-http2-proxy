@@ -11,12 +11,13 @@ export default (options: {
     rewrite?: (url: string) => string;
     headers?: Record<string, number | string | string[] | undefined>;
     secure?: boolean;
+    timeout?: number;
   };
 }): Plugin => {
   const configure = ({ middlewares }: { middlewares: Connect.Server }) => {
     for (const [
       regexp,
-      { target, rewrite, headers, secure = true },
+      { target, rewrite, headers, secure = true, timeout = 30_000 },
     ] of Object.entries(options)) {
       const re = new RegExp(regexp);
       const tu = new URL(target);
@@ -48,6 +49,7 @@ export default (options: {
               port,
               hostname: tu.hostname,
               path: pathname + search,
+              proxyTimeout: timeout,
               onReq: async (_, options) => {
                 options.headers = {
                   ...options.headers,
