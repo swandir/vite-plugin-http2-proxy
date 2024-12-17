@@ -1,14 +1,10 @@
 {
-  "include": ["*"],
   "compilerOptions": {
-    "strict": true,
+    "target": "ESNext",
     "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "types": ["node"],
+    "moduleResolution": "nodenext",
+    "strict": true,
     "declaration": true,
-    "esModuleInterop": true,
-    "target": "ES2021",
-    "skipLibCheck": true,
     "emitDeclarationOnly": true
   }
 }

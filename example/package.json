@@ -1,9 +1,0 @@
-{
-  "name": "example",
-  "type": "module",
-  "devDependencies": {
-    "selfsigned": "^2.1.1",
-    "vite": "^5.0.0",
-    "vite-plugin-http2-proxy": "workspace:*"
-  }
-}

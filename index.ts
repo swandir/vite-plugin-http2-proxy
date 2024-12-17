@@ -1,4 +1,4 @@
-import { Plugin, Connect } from "vite";
+import type { Plugin, Connect } from "vite";
 import proxy from "http2-proxy";
 
 const error = (message: string): never => {
@@ -34,8 +34,8 @@ export default (options: {
         tu.port === ""
           ? { https: 443, http: 80 }[protocol]
           : /^\d+$/.test(tu.port)
-          ? Number(tu.port)
-          : error(`Invalid port: ${tu.href}`);
+            ? Number(tu.port)
+            : error(`Invalid port: ${tu.href}`);
 
       middlewares.use((req, res, next) => {
         if (req.url && re.test(req.url)) {
@@ -58,7 +58,7 @@ export default (options: {
               },
               ["rejectUnauthorized" as never]: secure,
             },
-            (err) => err && next(err)
+            (err) => err && next(err),
           );
         } else {
           next();
